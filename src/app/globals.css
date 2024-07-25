@@ -1,0 +1,15 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+.navbar {
+  margin-top: 0;
+}
+
+.bg-image {
+  background-image: url("");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
