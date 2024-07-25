@@ -8,6 +8,10 @@ import Heropage from "./components/heropage";
 // };
 
 export default function Home() {
+  if (typeof window !== "undefined") {
+    require("bootstrap/dist/js/bootstrap.min.js");
+  }
+
   return (
     <main children={styles.back}>
       <Heropage />

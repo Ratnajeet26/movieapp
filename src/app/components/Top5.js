@@ -1,5 +1,5 @@
 "use client";
-import { Carousel } from "bootstrap/dist/js/bootstrap.min";
+
 import { useEffect, useState } from "react";
 
 const Top5 = () => {
