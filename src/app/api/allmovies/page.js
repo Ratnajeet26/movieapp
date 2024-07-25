@@ -10,7 +10,7 @@ const CardComponent = () => {
     const options = {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "2be6056fc5msh15c12fa8704402ep1e458fjsn5be67c9f4cb8",
+        "x-rapidapi-key": "d00f98836fmshe6e2ecb7ffb4f95p181575jsn210ef20d99dd",
         "x-rapidapi-host": "imdb-top-100-movies.p.rapidapi.com",
       },
     };
