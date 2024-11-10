@@ -1,44 +1,73 @@
 "use client";
-import Link from "next/link";
-import Slider from "./Slider";
 
-export default function Navbar() {
+import styles from "@/app/styles/navbar.module.css";
+import { CgCloseR, CgMenu } from "react-icons/cg";
+import Link from "next/link";
+import { useState } from "react";
+
+const Nav = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+  console.log("value " + openMenu);
   return (
     <>
-      <nav className="navbar  navbar-expand-lg navbar-light  style={{marginTop:0}} ">
-        <div className="container-fluid ">
-          <Link href="/" className="navbar-brand">
-            Movies App
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+      <nav className={styles.navbar}>
+        <div className={openMenu ? `${styles.active}` : ""}>
+          <ul className={styles.navbarList}>
+            <li className={styles.navbarItem}>
+              <Link
+                className={styles.navbarLink}
+                href="/"
+                onClick={() => setOpenMenu(false)}
+              >
+                Home
+              </Link>
+            </li>
+            <li className={styles.navbarItem}>
+              <Link
+                className={styles.navbarLink}
+                href="/about"
+                onClick={() => setOpenMenu(false)}
+              >
+                About
+              </Link>
+            </li>
+            <li className={styles.navbarItem}>
+              <Link
+                className={styles.navbarLink}
+                onClick={() => setOpenMenu(false)}
+                href="/movie"
+              >
+                Movie
+              </Link>
+            </li>
+            <li className={styles.navbarItem}>
+              <Link
+                className={styles.navbarLink}
+                onClick={() => setOpenMenu(false)}
+                href="/contact"
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
 
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav  ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link href="/api/allmovies" className="nav-link active">
-                  All Movies
-                </Link>
-              </li>
-              <li>
-                <Link href="/" className="nav-link active">
-                  Home
-                </Link>
-              </li>
-            </ul>
+          {/* //nav icon */}
+          <div className={styles["mobile-navbar-btn"]}>
+            <CgMenu
+              name="menu-outline"
+              className={styles["mobile-nav-icon"]}
+              onClick={() => setOpenMenu(true)}
+            />
+            <CgCloseR
+              name="close-outline"
+              className={`${styles["mobile-nav-icon"]} ${styles["close-outline"]}`}
+              onClick={() => setOpenMenu(false)}
+            />
           </div>
         </div>
       </nav>
-      <Slider />
     </>
   );
-}
+};
+
+export default Nav;
